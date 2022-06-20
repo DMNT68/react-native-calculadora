@@ -1,5 +1,8 @@
-import React, {useRef, useState} from 'react';
+import React, {useRef, useState, useEffect} from 'react';
 import {SafeAreaView, StatusBar, Text, View} from 'react-native';
+
+import SplashScreen from 'react-native-splash-screen';
+
 import {styles} from '../theme/appTheme';
 import {BotonCalc} from '../components/BotonCalc';
 import {useCalculadora} from '../hooks/useCalculadora';
@@ -18,6 +21,11 @@ export const CalculadorScreen = () => {
     numeroAnterior,
     positivoNegativo,
   } = useCalculadora();
+
+  useEffect(() => {
+    SplashScreen.hide();
+  }, [])
+  
 
   return (
     <SafeAreaView style={styles.fondo}>
